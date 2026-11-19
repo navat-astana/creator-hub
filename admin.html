@@ -21,7 +21,7 @@ button,.btn{border:0;border-radius:40px;padding:13px 19px;background:var(--pink)
 <div id="workspace" class="hidden">
 <section class="panel"><div style="display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap"><div><h2 style="margin-bottom:4px">Участники</h2><div class="mini">Добавляй, редактируй и удаляй рыцарей. Изменения видны всем посетителям.</div></div><button id="logout" class="secondary">Выйти</button></div><div id="knightList" style="margin-top:20px"></div></section>
 <section class="panel" id="editor"><h2 id="formTitle">Добавить рыцаря</h2><form id="knightForm"><input type="hidden" id="editingId">
-<div class="grid"><div><label for="knightName">Имя участника</label><input id="knightName" maxlength="100" required placeholder="Например, Алина"></div><div><label for="knightCategory">Категория</label><select id="knightCategory"><option>UGC</option><option>Micro</option><option>Large</option><option>Блогер</option></select></div></div>
+<div class="grid"><div><label for="knightName">Имя участника</label><input id="knightName" maxlength="100" required placeholder="Например, Алина"></div><div><label for="knightCategory">Категория (напиши сам)</label><input id="knightCategory" type="text" maxlength="80" placeholder="Например: Beauty-блогер, Рыцарь контента" required></div></div>
 <label for="knightInstagram">Ссылка на Instagram или другую страницу</label><input id="knightInstagram" type="url" placeholder="https://instagram.com/username" required>
 <div class="grid"><div><label for="knightPosition">Порядок карточки (1, 2, 3…)</label><input id="knightPosition" type="number" min="1" max="99999" value="1" required></div><div><label for="knightVisible">Показывать на сайте</label><select id="knightVisible"><option value="true">Да</option><option value="false">Нет</option></select></div></div>
 <label for="knightFile">Фотография (JPG, PNG или WebP, до 8 МБ)</label><input id="knightFile" type="file" accept="image/jpeg,image/png,image/webp">
@@ -53,7 +53,7 @@ for(const knight of current){
  const body=document.createElement('div');const title=document.createElement('b');title.textContent=knight.name;const sub=document.createElement('span');sub.textContent=(knight.category||'Блогер')+' · #'+knight.position+' · '+(knight.is_visible?'На сайте':'Скрыт');body.append(title,sub);
  const actions=document.createElement('div');actions.className='actions';const edit=document.createElement('button');edit.className='secondary';edit.textContent='Изменить';edit.addEventListener('click',()=>startEdit(knight));const del=document.createElement('button');del.className='danger';del.textContent='Удалить';del.addEventListener('click',()=>removeKnight(knight));actions.append(edit,del);item.append(img,body,actions);list.append(item);
 }}
-function clearForm(){document.getElementById('knightForm').reset();document.getElementById('editingId').value='';document.getElementById('knightImageUrl').value='';document.getElementById('knightPosition').value=String(current.length+1);document.getElementById('formTitle').textContent='Добавить рыцаря'}
+function clearForm(){document.getElementById('knightForm').reset();document.getElementById('editingId').value='';document.getElementById('knightImageUrl').value='';document.getElementById('knightPosition').value=String(current.length+1);document.getElementById('knightCategory').value='';document.getElementById('formTitle').textContent='Добавить рыцаря'}
 function startEdit(k){document.getElementById('editingId').value=k.id;document.getElementById('knightName').value=k.name;document.getElementById('knightInstagram').value=k.instagram_url||'';document.getElementById('knightImageUrl').value=k.image_url||'';document.getElementById('knightPosition').value=k.position||1;document.getElementById('knightVisible').value=String(k.is_visible);document.getElementById('knightCategory').value=k.category||'Блогер';document.getElementById('knightFile').value='';document.getElementById('formTitle').textContent='Изменить: '+k.name;document.getElementById('editor').scrollIntoView({behavior:'smooth'})}
 async function removeKnight(k){if(!confirm('Удалить участника «'+k.name+'» из списка?'))return;const {error}=await db.from('knights').delete().eq('id',k.id);if(error)msg('Не удалось удалить: '+error.message,'error');else{msg('Участник удалён','success');await refresh();clearForm()}}
 document.getElementById('resetButton').addEventListener('click',clearForm);
@@ -76,8 +76,8 @@ try{
  }
  if(!httpsUrl(imageUrl))throw Error('Нужна прямая HTTPS-ссылка на изображение или загруженный файл');
  const url=httpsUrl(document.getElementById('knightInstagram').value.trim());if(!url)throw Error('Нужна ссылка на профиль с https://');
- const payload={name:document.getElementById('knightName').value.trim(),instagram_url:url,image_url:imageUrl,category:document.getElementById('knightCategory').value,position:Number(document.getElementById('knightPosition').value)||1,is_visible:document.getElementById('knightVisible').value==='true'};
- if(!payload.name)throw Error('Укажи имя');
+ const payload={name:document.getElementById('knightName').value.trim(),instagram_url:url,image_url:imageUrl,category:document.getElementById('knightCategory').value.trim(),position:Number(document.getElementById('knightPosition').value)||1,is_visible:document.getElementById('knightVisible').value==='true'};
+ if(!payload.name)throw Error('Укажи имя');if(!payload.category)throw Error('Напиши категорию');
  const res=id?await db.from('knights').update(payload).eq('id',id):await db.from('knights').insert(payload);
  if(res.error)throw Error(res.error.message);
  msg('Сохранено! Обнови сайт — изменения увидят все.','success');await refresh();clearForm();
