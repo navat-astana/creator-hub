@@ -4,283 +4,1019 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CREATOR HUB — Kazakhstan</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#f5e8df">
+<title>CREATOR HUB — Сообщество создателей</title>
+<meta name="description" content="CREATOR HUB — сообщество UGC-креаторов, микроинфлюенсеров и блогеров Казахстана.">
 <style>
 :root {
-  --navy:#002549;
-  --blue:#59a9ce;
-  --red:#ff022e;
-  --white:#f5f7fa;
-  --muted:#9bb0c1;
+  --sand: #f5e8df;
+  --mocha: #514b29;
+  --pink: #ff74bf;
+  --white: #fffaf6;
+  --muted: #827c68;
+  --line: rgba(81,75,41,.16);
+  --shadow: 0 15px 45px rgba(81,75,41,.09);
+  --radius: 22px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--navy);color:var(--white);font-family:Manrope,sans-serif}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer}
-.container{width:min(1160px,90%);margin:auto}
-.topline{padding:11px 5%;background:#001a34;color:#9bb0c1;font-size:10px;letter-spacing:2px;display:flex;justify-content:space-between}
-header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid #ffffff20}
-.logo{font:700 30px Oswald,sans-serif}
-.logo span{color:var(--red)}
-nav{display:flex;align-items:center;gap:30px;font-size:12px;font-weight:800}
-nav a:hover{color:var(--blue)}
-.nav-btn,.btn{background:var(--red);padding:14px 20px;color:white;font-size:10px;font-weight:800;letter-spacing:1px;display:inline-block;border:0}
-.hero{min-height:610px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;padding-top:55px;padding-bottom:65px}
-.eyebrow{color:var(--blue);font-size:10px;font-weight:800;letter-spacing:2px}
-.eyebrow:before{content:"";display:inline-block;width:25px;height:2px;background:var(--red);vertical-align:middle;margin-right:12px}
-h1,h2,h3{font-family:Oswald,sans-serif}
-h1{font-size:clamp(60px,8vw,100px);line-height:.98;margin:25px 0}
-h1 span,h2 span{color:var(--blue)}
-.hero p{color:#b5c5d2;line-height:1.9;font-size:14px;max-width:490px}
-.actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.btn-outline{border:1px solid #ffffff66;padding:14px 20px;font-size:10px;font-weight:800;letter-spacing:1px}
-.categories{display:flex;gap:20px;margin-top:38px;font-size:9px;color:var(--blue);font-weight:800;letter-spacing:1px}
-.visual{height:400px;position:relative;display:grid;place-items:center}
-.visual-circle{width:310px;height:310px;border:1px solid #59a9ce66;border-radius:50%;position:absolute}
-.visual-circle:before,.visual-circle:after{content:"";position:absolute;border:1px solid #59a9ce44;border-radius:50%;inset:25px}
-.visual-circle:after{inset:-35px;transform:rotate(30deg) scaleX(.7)}
-.visual-card{position:relative;z-index:2;width:240px;height:315px;background:#edf2f5;color:var(--navy);padding:20px;transform:rotate(-7deg);box-shadow:20px 25px 50px #001329}
-.card-top,.card-bottom{display:flex;justify-content:space-between;font-size:9px;font-weight:800;letter-spacing:1px}
-.card-top span:last-child{color:var(--red)}
-.card-avatar{width:135px;height:135px;background:var(--navy);border:8px solid #d5e1e9;border-radius:50%;display:grid;place-items:center;margin:45px auto 20px;color:var(--blue);font:700 45px Oswald}
-.card-name{text-align:center;font:700 27px Oswald}
-.card-bottom{margin-top:16px}
-.stamp{position:absolute;z-index:3;background:var(--red);padding:16px;color:white;right:0;bottom:20px;transform:rotate(7deg);font:600 19px Oswald}
-.hero-bottom{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid #ffffff25;padding-top:15px;font-size:9px;letter-spacing:1px;color:#7895aa}
-.ticker{background:var(--red);padding:15px;text-align:center;font:600 17px Oswald;letter-spacing:3px;word-spacing:12px}
-section.content{padding:100px 0}
-.section-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:40px}
-h2{font-size:clamp(42px,5vw,68px);line-height:1}
-.section-note{font-size:12px;color:var(--muted);line-height:1.8}
-.meta{border-block:1px solid #ffffff25;padding:15px 0;display:flex;justify-content:space-between;font-size:10px;letter-spacing:1.5px;color:var(--blue);font-weight:800}
-.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:end;margin:22px 0 35px}
-.podium-card{padding:22px;min-height:270px;background:#17466b;position:relative;overflow:hidden}
-.podium-card:first-child{background:var(--red);min-height:315px}
-.podium-card:nth-child(2){background:#e5edf2;color:var(--navy)}
-.podium-label{display:flex;justify-content:space-between;font-size:9px;font-weight:800;letter-spacing:1px}
-.podium-avatar{width:65px;height:65px;border-radius:50%;background:#ffffff30;display:grid;place-items:center;font:600 24px Oswald;margin:25px 0 15px}
-.podium-card h3{font-size:23px}
-.podium-card p{font-size:10px;opacity:.7;margin-top:5px}
-.score{font:600 29px Oswald;margin-top:22px}
-.score small{font:700 9px Manrope}
-.table{border:1px solid #ffffff25}
-.table-head,.table-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;align-items:center;padding:16px 20px}
-.table-head{font-size:9px;color:#7895aa;letter-spacing:1px;border-bottom:1px solid #ffffff25}
-.table-row{border-bottom:1px solid #ffffff18;font-size:12px}
-.person strong{display:block}
-.person small{color:#7895aa;font-size:9px}
-.tag{font-size:9px;padding:6px 9px;background:#17466b;color:#bde1f3}
-.points{font:600 17px Oswald}
-.nominations{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
-.nomination{padding:18px;border:1px solid #ffffff25;font-size:10px;font-weight:800;letter-spacing:1px}
-.nomination span{display:block;color:var(--blue);font-size:9px;margin-top:7px}
-.creators{background:#f1f4f6;color:var(--navy)}
-.creators .section-note{color:#637e90}
-.filters{display:flex;gap:7px;margin:25px 0}
-.filters button{padding:9px 17px;background:transparent;border:1px solid #c5d1d9;color:#456174;font-size:10px;font-weight:800}
-.filters button.active{background:var(--navy);color:white}
-.creator-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.creator{background:white}
-.creator-cover{height:175px;background:#94c8dc;display:grid;place-items:center;position:relative;overflow:hidden}
-.creator:nth-child(3n+2) .creator-cover{background:#e9b7c7}
-.creator:nth-child(3n) .creator-cover{background:#c5d68c}
-.creator-cover:after{content:"";position:absolute;width:210px;height:210px;border:1px solid #00254955;border-radius:50%}
-.initials{width:105px;height:105px;border-radius:50%;background:var(--navy);color:white;display:grid;place-items:center;font:600 38px Oswald;z-index:1}
-.cover-type{position:absolute;right:13px;top:13px;background:var(--navy);color:white;padding:6px 10px;font-size:9px;z-index:2}
-.creator-info{padding:18px}
-.creator-info h3{font-size:23px}
-.handle{font-size:10px;color:#8295a2}
-.niche{font-size:10px;color:#668091;margin:16px 0}
-.stats{display:flex;gap:35px;border-block:1px solid #e2e8ec;padding:13px 0}
-.stats b{font:600 21px Oswald;display:block}
-.stats small{font-size:8px;color:#8295a2}
-.copy{border:0;background:none;color:#3282a7;font-size:9px;font-weight:800;padding-top:15px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid #ffffff25;margin-top:35px}
-.step{padding:25px 20px 25px 0}
-.step+.step{border-left:1px solid #ffffff25;padding-left:20px}
-.step-number{color:var(--red);font:600 18px Oswald}
-.step h3{font-size:20px;margin:22px 0 10px}
-.step p{font-size:10px;line-height:1.8;color:#a7bac8}
-.brand-section{background:var(--blue);color:var(--navy);padding:90px 5%;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.brand-section h2 span{color:white}
-.brand-section p{max-width:450px;font-size:13px;line-height:1.9;margin:25px 0}
-.brand-circle{border:1px solid #00254988;border-radius:50%;width:260px;height:260px;display:grid;place-content:center;text-align:center;margin:auto;font:500 28px Oswald;transform:rotate(-10deg)}
-.brand-circle b{font-size:55px}
-.final{padding:100px 5%}
-.final h2{font-size:clamp(65px,9vw,110px);margin:20px 0 30px}
-.final-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ffffff25;padding-top:22px}
-.final-row p{color:var(--muted);font-size:12px;max-width:400px;line-height:1.8}
-footer{padding:28px 5%;border-top:1px solid #ffffff25;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#7895aa;font-size:9px;letter-spacing:1px}
-@media(max-width:800px){
- nav{gap:12px;font-size:10px}
- .hero{grid-template-columns:1fr}
- .visual{height:350px}
- .hero-bottom{grid-column:1}
- .creator-grid{grid-template-columns:repeat(2,1fr)}
- .steps{grid-template-columns:repeat(2,1fr)}
- .step:nth-child(3){border-left:0}
- .brand-section{grid-template-columns:1fr}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--sand);
+  color: var(--mocha);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
-@media(max-width:520px){
- .topline span:last-child{display:none}
- header{height:68px}
- nav a:not(.nav-btn){display:none}
- .hero{padding-top:55px}
- h1{font-size:61px}
- .visual{height:310px}
- .visual-card{transform:scale(.85) rotate(-7deg)}
- .section-title{display:block}
- .section-note{margin-top:15px}
- section.content{padding:70px 0}
- .podium{grid-template-columns:1fr 1fr}
- .podium-card:last-child{grid-column:1/-1}
- .podium-card:first-child{min-height:270px}
- .table-head,.table-row{grid-template-columns:1.5fr .7fr .6fr .7fr;padding:12px 7px;font-size:9px}
- .table-head{font-size:7px}
- .person small{font-size:7px}
- .points{font-size:12px}
- .nominations{grid-template-columns:1fr}
- .creator-grid{grid-template-columns:1fr}
- .steps{grid-template-columns:1fr 1fr}
- .step{padding:20px 8px 20px 0}
- .step+.step{padding-left:12px}
- .step h3{font-size:16px}
- .step p{font-size:9px}
- .final-row{display:block}
- .final-row .btn{margin-top:20px}
- footer{font-size:8px}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+.container { width: min(1180px, calc(100% - 40px)); margin: auto; }
+
+.topline {
+  background: var(--mocha);
+  color: var(--sand);
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245,232,223,.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 1000;
+  letter-spacing: -1.5px;
+}
+
+.logo span { color: #d94d99; }
+
+.nav-links {
+  display: flex;
+  gap: 27px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nav-links a { transition: .2s; }
+.nav-links a:hover { color: #d94d99; }
+
+.btn {
+  border: 0;
+  border-radius: 100px;
+  padding: 14px 23px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  transition: .25s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.btn-pink {
+  background: var(--pink);
+  color: var(--mocha);
+  box-shadow: 0 8px 22px rgba(255,116,191,.25);
+}
+
+.btn-dark { background: var(--mocha); color: var(--sand); }
+.btn-light { background: var(--sand); color: var(--mocha); }
+
+.hero { padding: 78px 0 70px; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(81,75,41,.08);
+  border: 1px solid var(--line);
+  padding: 9px 14px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #d94d99;
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-size: clamp(52px, 7.5vw, 100px);
+  line-height: .92;
+  letter-spacing: -6px;
+  font-weight: 1000;
+  max-width: 760px;
+}
+
+.hero h1 span {
+  color: #d94d99;
+  display: block;
+}
+
+.hero-description {
+  margin-top: 27px;
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+.hero-visual {
+  background: var(--mocha);
+  color: var(--sand);
+  border-radius: 30px;
+  min-height: 390px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--pink);
+  right: -90px;
+  top: -95px;
+  opacity: .95;
+}
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(245,232,223,.3);
+  border-radius: 50%;
+  right: 45px;
+  top: 75px;
+}
+
+.visual-top, .visual-bottom { position: relative; z-index: 2; }
+.visual-top { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+.visual-symbol {
+  font-size: 110px;
+  line-height: 1;
+  font-weight: 1000;
+  color: var(--pink);
+  position: relative;
+  z-index: 2;
+  letter-spacing: -10px;
+}
+.visual-bottom strong { display: block; font-size: 27px; line-height: 1.1; }
+.visual-bottom span { color: rgba(245,232,223,.65); font-size: 13px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+  margin-top: 55px;
+}
+
+.stat { text-align: center; border-right: 1px solid var(--line); }
+.stat:last-child { border: 0; }
+.stat strong { display: block; font-size: 32px; font-weight: 1000; }
+.stat span { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+section { padding: 85px 0; }
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.section-label {
+  color: #d94d99;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(34px,5vw,56px);
+  line-height: 1;
+  letter-spacing: -2.5px;
+  font-weight: 1000;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  max-width: 400px;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 14px;
+}
+
+.dark-section {
+  background: var(--mocha);
+  color: var(--sand);
+}
+
+.dark-section .section-label { color: var(--pink); }
+.dark-section .section-subtitle { color: rgba(245,232,223,.65); }
+
+.leaderboard {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+  align-items: end;
+}
+
+.leader-card {
+  border-radius: 24px;
+  padding: 25px;
+  background: rgba(245,232,223,.08);
+  border: 1px solid rgba(245,232,223,.15);
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.leader-card.first {
+  background: var(--pink);
+  color: var(--mocha);
+  min-height: 260px;
+}
+
+.leader-place {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  opacity: .7;
+}
+
+.leader-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(245,232,223,.15);
+  font-size: 22px;
+  font-weight: 900;
+  margin: 20px 0 15px;
+}
+
+.first .leader-avatar { background: rgba(81,75,41,.12); }
+
+.leader-card h3 { font-size: 22px; margin-bottom: 5px; }
+.leader-card p { font-size: 12px; opacity: .7; }
+.leader-score { font-size: 30px; font-weight: 1000; margin-top: 18px; }
+.leader-score small { font-size: 11px; font-weight: 500; }
+
+.podium-note {
+  margin-top: 22px;
+  font-size: 12px;
+  color: rgba(245,232,223,.55);
+}
+
+.filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.filter-btn {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--mocha);
+  border-radius: 100px;
+  padding: 11px 18px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--mocha);
+  color: var(--sand);
+  border-color: var(--mocha);
+}
+
+.creator-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+
+.creator-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 23px;
+  transition: .25s;
+}
+
+.creator-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+
+.creator-top {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.creator-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 17px;
+  background: var(--mocha);
+  color: var(--sand);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.creator-name { font-size: 17px; font-weight: 900; }
+.creator-handle { font-size: 12px; color: var(--muted); }
+
+.creator-type {
+  display: inline-block;
+  background: rgba(255,116,191,.25);
+  color: var(--mocha);
+  border-radius: 100px;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.creator-bio {
+  font-size: 13px;
+  color: var(--muted);
+  min-height: 39px;
+  margin: 15px 0;
+}
+
+.creator-stats {
+  display: flex;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+}
+
+.creator-stats strong { display: block; font-size: 17px; }
+.creator-stats span { font-size: 10px; color: var(--muted); }
+
+.creator-actions { display: flex; gap: 8px; margin-top: 18px; }
+.creator-actions button { flex: 1; }
+
+.small-btn {
+  border: 1px solid var(--line);
+  background: transparent;
+  border-radius: 100px;
+  padding: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--mocha);
+}
+
+.small-btn:hover { background: var(--pink); border-color: var(--pink); }
+
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 45px;
+  color: var(--muted);
+  background: var(--white);
+  border-radius: 20px;
+}
+
+.nominations {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+
+.nomination {
+  padding: 27px;
+  border-radius: 23px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  min-height: 200px;
+}
+
+.nomination .number { color: #d94d99; font-size: 12px; font-weight: 900; letter-spacing: 2px; }
+.nomination h3 { font-size: 22px; margin: 22px 0 10px; }
+.nomination p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+.join-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 45px;
+  align-items: start;
+}
+
+.join-box {
+  background: var(--pink);
+  color: var(--mocha);
+  padding: 35px;
+  border-radius: 25px;
+  position: sticky;
+  top: 110px;
+}
+
+.join-box h3 { font-size: 32px; line-height: 1.1; margin-bottom: 15px; }
+.join-box p { font-size: 14px; margin-bottom: 25px; opacity: .8; }
+
+.steps { display: grid; gap: 14px; }
+
+.step {
+  display: flex;
+  gap: 20px;
+  padding: 23px;
+  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.step-number {
+  flex: 0 0 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--mocha);
+  color: var(--sand);
+  font-weight: 900;
+}
+
+.step h3 { font-size: 17px; margin-bottom: 5px; }
+.step p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+.brand-panel {
+  background: var(--mocha);
+  color: var(--sand);
+  border-radius: 28px;
+  padding: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.brand-panel h2 { font-size: clamp(30px,4vw,48px); line-height: 1; letter-spacing: -2px; }
+.brand-panel p { color: rgba(245,232,223,.65); margin-top: 15px; max-width: 500px; font-size: 14px; }
+
+footer {
+  background: var(--mocha);
+  color: var(--sand);
+  margin-top: 85px;
+  padding: 45px 0 25px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding-bottom: 35px;
+}
+
+.footer-logo { font-size: 27px; font-weight: 1000; letter-spacing: -1px; }
+.footer-logo span { color: var(--pink); }
+.footer-copy { font-size: 12px; color: rgba(245,232,223,.55); margin-top: 10px; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 12px; }
+.footer-links a:hover { color: var(--pink); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(245,232,223,.15);
+  padding-top: 20px;
+  color: rgba(245,232,223,.45);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.mobile-menu { display: none; }
+
+@media (max-width: 850px) {
+  .nav-links { display: none; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 300px; }
+  .creator-grid { grid-template-columns: repeat(2,1fr); }
+  .join-grid { grid-template-columns: 1fr; }
+  .join-box { position: static; }
+}
+
+@media (max-width: 600px) {
+  .container { width: min(100% - 28px, 1180px); }
+  .nav { min-height: 65px; }
+  .logo { font-size: 20px; }
+  .nav > .btn { padding: 11px 15px; font-size: 11px; }
+  .hero { padding: 55px 0 45px; }
+  .hero h1 { font-size: 57px; letter-spacing: -4px; }
+  .hero-description { font-size: 14px; }
+  .hero-visual { min-height: 270px; }
+  .visual-symbol { font-size: 85px; }
+  .stats { padding: 18px 8px; margin-top: 30px; }
+  .stat strong { font-size: 23px; }
+  .stat span { font-size: 9px; }
+  section { padding: 60px 0; }
+  .section-head { display: block; }
+  .section-title { font-size: 38px; }
+  .leaderboard { grid-template-columns: 1fr; }
+  .leader-card, .leader-card.first { min-height: auto; }
+  .leader-avatar { margin: 14px 0; }
+  .creator-grid, .nominations { grid-template-columns: 1fr; }
+  .creator-card { padding: 19px; }
+  .brand-panel { display: block; padding: 28px; }
+  .brand-panel .btn { margin-top: 22px; }
+  .footer-top { display: block; }
+  .footer-links { margin-top: 25px; }
 }
 </style>
 </head>
+
 <body>
-<div class="topline"><span>● CREATOR COMMUNITY / KAZAKHSTAN</span><span>MONTHLY RANKING / 2026</span></div>
+
+<div class="topline">
+  CREATOR HUB · COMMUNITY FOR CREATORS · KAZAKHSTAN
+</div>
+
 <header>
-  <a href="#" class="logo">C<span>•</span>H / HUB</a>
-  <nav>
-    <a href="#ranking">Рейтинг</a>
-    <a href="#creators">Креаторы</a>
-    <a href="#how">Как попасть</a>
-    <a href="#brands">Для брендов</a>
-    <a href="#join" class="nav-btn">ВСТУПИТЬ ↗</a>
-  </nav>
+  <div class="container nav">
+    <a class="logo" href="#">CREATOR<span>HUB.</span></a>
+    <nav class="nav-links">
+      <a href="#rating">Рейтинг</a>
+      <a href="#creators">Креаторы</a>
+      <a href="#nominations">Номинации</a>
+      <a href="#join">Как вступить</a>
+    </nav>
+    <a class="btn btn-pink" href="https://chat.whatsapp.com/ВАША_ССЫЛКА" target="_blank">
+      Вступить в HUB ↗
+    </a>
+  </div>
 </header>
 
 <main>
-<section class="hero container">
-  <div>
-    <div class="eyebrow">НЕ ПРОСТО ЧАТ. ТВОЯ СРЕДА.</div>
-    <h1>ТВОЙ КОНТЕНТ.<br><span>ТВОЙ УРОВЕНЬ.</span></h1>
-    <p>Сообщество UGC-креаторов, микро- и крупных блогеров Казахстана. Знакомься, создавай, участвуй в рейтинге и расти вместе с индустрией.</p>
-    <div class="actions">
-      <a class="btn" href="#join">ВСТУПИТЬ В СООБЩЕСТВО ↗</a>
-      <a class="btn-outline" href="#how">КАК ЭТО РАБОТАЕТ →</a>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Новое поколение креаторов</div>
+        <h1>ТВОЙ КОНТЕНТ.<span>ТВОЯ СРЕДА.</span></h1>
+        <p class="hero-description">
+          CREATOR HUB — пространство для UGC-креаторов, микроинфлюенсеров
+          и больших блогеров. Знакомься, развивайся, сотрудничай с брендами
+          и становись заметнее.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-pink" href="#join">Стать участником ↗</a>
+          <a class="btn btn-dark" href="#creators">Смотреть участников</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-top">Kazakhstan creator community</div>
+        <div class="visual-symbol">CH.</div>
+        <div class="visual-bottom">
+          <strong>CREATE.<br>CONNECT.<br>GROW.</strong>
+          <span>Это больше, чем просто блогинг.</span>
+        </div>
+      </div>
     </div>
-    <div class="categories"><span>UGC CREATOR</span><span>MICRO / ДО 50K</span><span>LARGE / 50K+</span></div>
-  </div>
-  <div class="visual">
-    <div class="visual-circle"></div>
-    <div class="visual-card">
-      <div class="card-top"><span>CH / MEMBER</span><span>● LIVE</span></div>
-      <div class="card-avatar">CH</div>
-      <div class="card-name">YOUR NAME</div>
-      <div class="card-bottom"><span>CREATOR ID</span><b>#0001</b></div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>01</strong>
+        <span>Сообщество</span>
+      </div>
+      <div class="stat">
+        <strong>03</strong>
+        <span>Категории креаторов</span>
+      </div>
+      <div class="stat">
+        <strong>∞</strong>
+        <span>Возможности</span>
+      </div>
     </div>
-    <div class="stamp">CREATE<br>YOUR IMPACT</div>
-  </div>
-  <div class="hero-bottom"><span>01 / COMMUNITY</span><span>SCROLL TO EXPLORE ↓</span><span>ASTANA · ALMATY · KZ</span></div>
-</section>
-
-<div class="ticker">CREATE • CONNECT • COLLABORATE • GROW • CREATE • CONNECT • COLLABORATE • GROW</div>
-
-<section class="content container" id="ranking">
-  <div class="section-title">
-    <div><div class="eyebrow">MONTHLY LEADERBOARD</div><h2>ВРЕМЯ <span>СВЕТИТЬСЯ.</span></h2></div>
-    <p class="section-note">Рейтинг участников сообщества.<br>Покажи результат — забери внимание.</p>
-  </div>
-  <div class="meta"><span>🏆 ТОП МЕСЯЦА</span><span>НОЯБРЬ 2026</span><span>ДЕМО-ДАННЫЕ</span></div>
-  <div class="podium">
-    <div class="podium-card"><div class="podium-label"><span>TOP CREATOR</span><span>#01</span></div><div class="podium-avatar">АС</div><h3>Алина Садыкова</h3><p>@alina.create</p><div class="score">284 500 <small>POINTS</small></div></div>
-    <div class="podium-card"><div class="podium-label"><span>TOP REACH</span><span>#02</span></div><div class="podium-avatar">ДМ</div><h3>Данияр М.</h3><p>@daniyar.motion</p><div class="score">241 200 <small>POINTS</small></div></div>
-    <div class="podium-card"><div class="podium-label"><span>BREAKTHROUGH</span><span>#03</span></div><div class="podium-avatar">МЕ</div><h3>Мадина Ермек</h3><p>@madina.frames</p><div class="score">198 750 <small>POINTS</small></div></div>
-  </div>
-  <div class="table">
-    <div class="table-head"><span>ПОЗИЦИЯ / УЧАСТНИК</span><span>КАТЕГОРИЯ</span><span>ОХВАТ</span><span>БАЛЛЫ</span></div>
-    <div class="table-row"><div class="person"><strong>01 · Алина Садыкова</strong><small>@alina.create</small></div><span class="tag">UGC</span><span>84K</span><b class="points">284 500</b></div>
-    <div class="table-row"><div class="person"><strong>02 · Данияр М.</strong><small>@daniyar.motion</small></div><span class="tag">MICRO</span><span>210K</span><b class="points">241 200</b></div>
-    <div class="table-row"><div class="person"><strong>03 · Мадина Ермек</strong><small>@madina.frames</small></div><span class="tag">UGC</span><span>61K</span><b class="points">198 750</b></div>
-    <div class="table-row"><div class="person"><strong>04 · Арман К.</strong><small>@arman.daily</small></div><span class="tag">LARGE</span><span>1.2M</span><b class="points">176 400</b></div>
-    <div class="table-row"><div class="person"><strong>05 · София Нур</strong><small>@sonur.content</small></div><span class="tag">MICRO</span><span>330K</span><b class="points">154 900</b></div>
-  </div>
-  <div class="nominations">
-    <div class="nomination">✦ BEST UGC CREATIVE<span>Лучшая рекламная идея</span></div>
-    <div class="nomination">↗ BREAKTHROUGH<span>Прорыв месяца</span></div>
-    <div class="nomination">🏆 TOP REACH<span>Максимальный охват</span></div>
   </div>
 </section>
 
-<section class="content creators" id="creators">
-<div class="container">
-  <div class="section-title"><div><div class="eyebrow">PEOPLE MAKE THE COMMUNITY</div><h2>ЛИЦА <span>СООБЩЕСТВА.</span></h2></div><p class="section-note">Находи авторов, изучай их стиль<br>и открывай новые возможности.</p></div>
-  <div class="filters">
-    <button class="active" onclick="filterCreators('Все',this)">Все</button>
-    <button onclick="filterCreators('UGC',this)">UGC</button>
-    <button onclick="filterCreators('Micro',this)">Micro</button>
-    <button onclick="filterCreators('Large',this)">Large</button>
+<section class="dark-section" id="rating">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Monthly leaderboard</div>
+        <h2 class="section-title">РЕЙТИНГ МЕСЯЦА</h2>
+        <p class="section-subtitle">
+          Отмечаем активных участников и тех, кто двигает креаторское
+          сообщество вперёд.
+        </p>
+      </div>
+      <span class="creator-type">Текущий месяц</span>
+    </div>
+
+    <div class="leaderboard">
+      <article class="leader-card">
+        <div class="leader-place">#02 · SECOND PLACE</div>
+        <div class="leader-avatar">02</div>
+        <h3>Имя участника</h3>
+        <p>@username · Micro</p>
+        <div class="leader-score">8 450 <small>баллов</small></div>
+      </article>
+
+      <article class="leader-card first">
+        <div class="leader-place">#01 · TOP CREATOR ✦</div>
+        <div class="leader-avatar">01</div>
+        <h3>Имя участника</h3>
+        <p>@username · Large</p>
+        <div class="leader-score">12 800 <small>баллов</small></div>
+      </article>
+
+      <article class="leader-card">
+        <div class="leader-place">#03 · THIRD PLACE</div>
+        <div class="leader-avatar">03</div>
+        <h3>Имя участника</h3>
+        <p>@username · UGC</p>
+        <div class="leader-score">6 200 <small>баллов</small></div>
+      </article>
+    </div>
+
+    <p class="podium-note">
+      * Данные демонстрационные. Рейтинг можно обновлять каждый месяц.
+    </p>
   </div>
-  <div class="creator-grid" id="creatorGrid">
-    <article class="creator" data-type="UGC"><div class="creator-cover"><span class="cover-type">UGC</span><div class="initials">АС</div></div><div class="creator-info"><h3>Алина Садыкова</h3><div class="handle">@alina.create</div><div class="niche">Beauty · Lifestyle · Астана</div><div class="stats"><div><b>12.4K</b><small>ПОДПИСЧИКИ</small></div><div><b>84K</b><small>ОХВАТ / МЕС.</small></div></div><button class="copy" onclick="copyNick('@alina.create',this)">▢ СКОПИРОВАТЬ НИК</button></div></article>
-    <article class="creator" data-type="Micro"><div class="creator-cover"><span class="cover-type">MICRO</span><div class="initials">ДМ</div></div><div class="creator-info"><h3>Данияр М.</h3><div class="handle">@daniyar.motion</div><div class="niche">Lifestyle · Tech · Алматы</div><div class="stats"><div><b>38.2K</b><small>ПОДПИСЧИКИ</small></div><div><b>210K</b><small>ОХВАТ / МЕС.</small></div></div><button class="copy" onclick="copyNick('@daniyar.motion',this)">▢ СКОПИРОВАТЬ НИК</button></div></article>
-    <article class="creator" data-type="UGC"><div class="creator-cover"><span class="cover-type">UGC</span><div class="initials">МЕ</div></div><div class="creator-info"><h3>Мадина Ермек</h3><div class="handle">@madina.frames</div><div class="niche">Fashion · Beauty · Астана</div><div class="stats"><div><b>8.7K</b><small>ПОДПИСЧИКИ</small></div><div><b>61K</b><small>ОХВАТ / МЕС.</small></div></div><button class="copy" onclick="copyNick('@madina.frames',this)">▢ СКОПИРОВАТЬ НИК</button></div></article>
-    <article class="creator" data-type="Large"><div class="creator-cover"><span class="cover-type">LARGE</span><div class="initials">АК</div></div><div class="creator-info"><h3>Арман К.</h3><div class="handle">@arman.daily</div><div class="niche">Entertainment · Алматы</div><div class="stats"><div><b>186K</b><small>ПОДПИСЧИКИ</small></div><div><b>1.2M</b><small>ОХВАТ / МЕС.</small></div></div><button class="copy" onclick="copyNick('@arman.daily',this)">▢ СКОПИРОВАТЬ НИК</button></div></article>
-    <article class="creator" data-type="Micro"><div class="creator-cover"><span class="cover-type">MICRO</span><div class="initials">СН</div></div><div class="creator-info"><h3>София Нур</h3><div class="handle">@sonur.content</div><div class="niche">Travel · Food · Шымкент</div><div class="stats"><div><b>47.1K</b><small>ПОДПИСЧИКИ</small></div><div><b>330K</b><small>ОХВАТ / МЕС.</small></div></div><button class="copy" onclick="copyNick('@sonur.content',this)">▢ СКОПИРОВАТЬ НИК</button></div></article>
-    <article class="creator" data-type="UGC"><div class="creator-cover"><span class="cover-type">UGC</span><div class="initials">ЕО</div></div><div class="creator-info"><h3>Ерасыл О.</h3><div class="handle">@yerassyl.video</div><div class="niche">Sport · Lifestyle · Астана</div><div class="stats"><div><b>5.2K</b><small>ПОДПИСЧИКИ</small></div><div><b>42K</b><small>ОХВАТ / МЕС.</small></div></div><button class="copy" onclick="copyNick('@yerassyl.video',this)">▢ СКОПИРОВАТЬ НИК</button></div></article>
-  </div>
-</div>
 </section>
 
-<section class="content container" id="how">
-  <div class="section-title"><div><div class="eyebrow">YOUR NEXT STEP</div><h2>КАК <span>ПОПАСТЬ?</span></h2></div><p class="section-note">Начни с простого шага.<br>Дальше — больше.</p></div>
-  <div class="steps">
-    <div class="step"><div class="step-number">01</div><h3>ВСТУПИ В ЧАТ</h3><p>Присоединяйся к WhatsApp-сообществу и знакомься с участниками.</p></div>
-    <div class="step"><div class="step-number">02</div><h3>РАССКАЖИ О СЕБЕ</h3><p>Поделись ссылками на площадки, нишей и форматом контента.</p></div>
-    <div class="step"><div class="step-number">03</div><h3>УЧАСТВУЙ</h3><p>Следи за активностями, номинациями и обновлением рейтинга.</p></div>
-    <div class="step"><div class="step-number">04</div><h3>РАСТИ</h3><p>Находи коллаборации, клиентов и новые точки роста.</p></div>
+<section id="creators">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Meet the community</div>
+        <h2 class="section-title">НАШИ КРЕАТОРЫ</h2>
+        <p class="section-subtitle">
+          Найди людей своего направления, познакомься и создавай новые проекты вместе.
+        </p>
+      </div>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Все участники</button>
+      <button class="filter-btn" data-filter="ugc">UGC</button>
+      <button class="filter-btn" data-filter="micro">Micro · до 50K</button>
+      <button class="filter-btn" data-filter="large">Large · 50K+</button>
+    </div>
+
+    <div class="creator-grid" id="creatorGrid">
+
+      <article class="creator-card" data-category="ugc">
+        <div class="creator-top">
+          <div class="creator-avatar">AK</div>
+          <div>
+            <div class="creator-name">Алина К.</div>
+            <div class="creator-handle">@alina.creator</div>
+          </div>
+        </div>
+        <span class="creator-type">UGC Creator</span>
+        <p class="creator-bio">Lifestyle · Beauty · Обзоры продуктов</p>
+        <div class="creator-stats">
+          <div><strong>UGC</strong><span>Направление</span></div>
+          <div><strong>12</strong><span>Проектов</span></div>
+        </div>
+        <div class="creator-actions">
+          <button class="small-btn" onclick="copyText('@alina.creator')">Копировать ник</button>
+          <a class="small-btn" href="#" target="_blank">Профиль ↗</a>
+        </div>
+      </article>
+
+      <article class="creator-card" data-category="micro">
+        <div class="creator-top">
+          <div class="creator-avatar">DM</div>
+          <div>
+            <div class="creator-name">Данияр М.</div>
+            <div class="creator-handle">@daniyar.media</div>
+          </div>
+        </div>
+        <span class="creator-type">Micro Influencer</span>
+        <p class="creator-bio">Lifestyle · Город · Развлечения</p>
+        <div class="creator-stats">
+          <div><strong>28K</strong><span>Подписчиков</span></div>
+          <div><strong>8.5%</strong><span>Вовлечённость</span></div>
+        </div>
+        <div class="creator-actions">
+          <button class="small-btn" onclick="copyText('@daniyar.media')">Копировать ник</button>
+          <a class="small-btn" href="#" target="_blank">Профиль ↗</a>
+        </div>
+      </article>
+
+      <article class="creator-card" data-category="large">
+        <div class="creator-top">
+          <div class="creator-avatar">AS</div>
+          <div>
+            <div class="creator-name">Аружан С.</div>
+            <div class="creator-handle">@aruzhan.show</div>
+          </div>
+        </div>
+        <span class="creator-type">Large Blogger</span>
+        <p class="creator-bio">Fashion · Lifestyle · Beauty</p>
+        <div class="creator-stats">
+          <div><strong>120K</strong><span>Подписчиков</span></div>
+          <div><strong>6.2%</strong><span>Вовлечённость</span></div>
+        </div>
+        <div class="creator-actions">
+          <button class="small-btn" onclick="copyText('@aruzhan.show')">Копировать ник</button>
+          <a class="small-btn" href="#" target="_blank">Профиль ↗</a>
+        </div>
+      </article>
+
+      <article class="creator-card" data-category="ugc">
+        <div class="creator-top">
+          <div class="creator-avatar">MR</div>
+          <div>
+            <div class="creator-name">Мадина Р.</div>
+            <div class="creator-handle">@madina.content</div>
+          </div>
+        </div>
+        <span class="creator-type">UGC Creator</span>
+        <p class="creator-bio">Food · Beauty · Product video</p>
+        <div class="creator-stats">
+          <div><strong>UGC</strong><span>Направление</span></div>
+          <div><strong>19</strong><span>Проектов</span></div>
+        </div>
+        <div class="creator-actions">
+          <button class="small-btn" onclick="copyText('@madina.content')">Копировать ник</button>
+          <a class="small-btn" href="#" target="_blank">Профиль ↗</a>
+        </div>
+      </article>
+
+      <article class="creator-card" data-category="micro">
+        <div class="creator-top">
+          <div class="creator-avatar">NT</div>
+          <div>
+            <div class="creator-name">Нурлан Т.</div>
+            <div class="creator-handle">@nurlan.life</div>
+          </div>
+        </div>
+        <span class="creator-type">Micro Influencer</span>
+        <p class="creator-bio">Sport · Lifestyle · Motivation</p>
+        <div class="creator-stats">
+          <div><strong>42K</strong><span>Подписчиков</span></div>
+          <div><strong>7.1%</strong><span>Вовлечённость</span></div>
+        </div>
+        <div class="creator-actions">
+          <button class="small-btn" onclick="copyText('@nurlan.life')">Копировать ник</button>
+          <a class="small-btn" href="#" target="_blank">Профиль ↗</a>
+        </div>
+      </article>
+
+      <article class="creator-card" data-category="large">
+        <div class="creator-top">
+          <div class="creator-avatar">ES</div>
+          <div>
+            <div class="creator-name">Ержан С.</div>
+            <div class="creator-handle">@erzhan.live</div>
+          </div>
+        </div>
+        <span class="creator-type">Large Blogger</span>
+        <p class="creator-bio">Entertainment · Comedy · Vlog</p>
+        <div class="creator-stats">
+          <div><strong>250K</strong><span>Подписчиков</span></div>
+          <div><strong>9.4%</strong><span>Вовлечённость</span></div>
+        </div>
+        <div class="creator-actions">
+          <button class="small-btn" onclick="copyText('@erzhan.live')">Копировать ник</button>
+          <a class="small-btn" href="#" target="_blank">Профиль ↗</a>
+        </div>
+      </article>
+
+    </div>
+    <div class="empty-state" id="emptyState">В этой категории пока нет участников.</div>
   </div>
 </section>
 
-<section class="brand-section" id="brands">
-  <div><div class="eyebrow">FOR BUSINESS</div><h2>БРЕНДАМ —<br><span>СВОИХ ЛЮДЕЙ.</span></h2><p>Ищете UGC-креаторов для контента или блогеров для рекламной интеграции? Здесь можно найти авторов под вашу задачу и связаться напрямую.</p><a class="btn" href="mailto:hello@creatorhub.kz">НАЙТИ КРЕАТОРА ↗</a></div>
-  <div class="brand-circle">MATCH<br><b>MADE</b><br>HERE</div>
+<section class="dark-section" id="nominations">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Monthly awards</div>
+        <h2 class="section-title">НОМИНАЦИИ</h2>
+        <p class="section-subtitle">
+          Каждый месяц отмечаем тех, кто вдохновляет, экспериментирует и создаёт крутой контент.
+        </p>
+      </div>
+    </div>
+
+    <div class="nominations">
+      <article class="nomination">
+        <div class="number">01 / CREATIVE</div>
+        <h3>Креатор месяца</h3>
+        <p>За оригинальность, идеи и нестандартный подход к созданию контента.</p>
+      </article>
+      <article class="nomination">
+        <div class="number">02 / GROWTH</div>
+        <h3>Прорыв месяца</h3>
+        <p>За заметный рост, развитие личного бренда и активность.</p>
+      </article>
+      <article class="nomination">
+        <div class="number">03 / COMMUNITY</div>
+        <h3>Выбор сообщества</h3>
+        <p>За поддержку других участников и вклад в развитие CREATOR HUB.</p>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section class="final" id="join">
-  <div class="eyebrow">THIS IS YOUR SPACE</div>
-  <h2>ТВОЁ ВРЕМЯ<br><span>НАЧИНАЕТСЯ.</span></h2>
-  <div class="final-row"><p>Неважно, у тебя 500 подписчиков или 500 тысяч. Если ты создаёшь — тебе сюда.</p><a class="btn" href="https://chat.whatsapp.com/ВАША_ССЫЛКА" target="_blank">СТАТЬ ЧАСТЬЮ HUB ↗</a></div>
+<section id="join">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Become a member</div>
+        <h2 class="section-title">КАК ПОПАСТЬ В HUB?</h2>
+        <p class="section-subtitle">Всё просто. Несколько шагов — и ты часть сообщества.</p>
+      </div>
+    </div>
+
+    <div class="join-grid">
+      <div class="join-box">
+        <h3>ТВОЁ МЕСТО — СРЕДИ КРЕАТОРОВ.</h3>
+        <p>Неважно, только начинаешь ты или уже работаешь с крупными брендами. Здесь есть место для роста.</p>
+        <a class="btn btn-dark" href="https://chat.whatsapp.com/ВАША_ССЫЛКА" target="_blank">
+          Подать заявку ↗
+        </a>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <div class="step-number">01</div>
+          <div>
+            <h3>Подготовь профиль</h3>
+            <p>Укажи имя, город, ссылку на социальные сети и направление контента.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-number">02</div>
+          <div>
+            <h3>Отправь заявку</h3>
+            <p>Свяжись с командой CREATOR HUB через WhatsApp и расскажи о себе.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-number">03</div>
+          <div>
+            <h3>Пройди подтверждение</h3>
+            <p>Команда проверит профиль и определит категорию участника.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-number">04</div>
+          <div>
+            <h3>Стань частью сообщества</h3>
+            <p>Знакомься, участвуй в активностях, находи партнёров и развивайся.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section>
+  <div class="container">
+    <div class="brand-panel">
+      <div>
+        <div class="section-label">For brands & partners</div>
+        <h2>ВАШ БРЕНД.<br>НАША КРЕАТИВНАЯ СРЕДА.</h2>
+        <p>
+          CREATOR HUB объединяет создателей контента разных масштабов.
+          Станьте партнёром сообщества и находите авторов для своих проектов.
+        </p>
+      </div>
+      <a class="btn btn-pink" href="mailto:hello@creatorhub.kz?subject=CREATOR%20HUB%20Partnership">
+        Сотрудничество ↗
+      </a>
+    </div>
+  </div>
+</section>
+
 </main>
-<footer><a class="logo" href="#">C<span style="color:#ff022e">•</span>H / HUB</a><span>CREATORS BUILD CULTURE.</span><span>© 2026 CREATOR HUB / KAZAKHSTAN</span><a href="#">НАВЕРХ ↑</a></footer>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">CREATOR<span>HUB.</span></div>
+        <div class="footer-copy">Сообщество нового поколения креаторов Казахстана.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#rating">Рейтинг</a>
+        <a href="#creators">Креаторы</a>
+        <a href="#nominations">Номинации</a>
+        <a href="#join">Вступить</a>
+        <a href="https://instagram.com/" target="_blank">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CREATOR HUB. Все права защищены.</span>
+      <span>CREATE. CONNECT. GROW.</span>
+    </div>
+  </div>
+</footer>
 
 <script>
-function filterCreators(type,button){
-  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
-  button.classList.add('active');
-  document.querySelectorAll('.creator').forEach(card=>{
-    card.style.display=(type==='Все'||card.dataset.type===type)?'block':'none';
+const filterButtons = document.querySelectorAll(".filter-btn");
+const creatorCards = document.querySelectorAll(".creator-card");
+const emptyState = document.getElementById("emptyState");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+    let visibleCount = 0;
+
+    filterButtons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+
+    creatorCards.forEach(card => {
+      const matches = filter === "all" || card.dataset.category === filter;
+      card.style.display = matches ? "block" : "none";
+      if (matches) visibleCount++;
+    });
+
+    emptyState.style.display = visibleCount ? "none" : "block";
   });
-}
-async function copyNick(nick,button){
-  try{
-    await navigator.clipboard.writeText(nick);
-    button.textContent='✓ СКОПИРОВАНО';
-    setTimeout(()=>button.textContent='▢ СКОПИРОВАТЬ НИК',1600);
-  }catch(e){
-    prompt('Скопируйте ник:',nick);
+});
+
+function copyText(value) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(value)
+      .then(() => alert("Ник скопирован: " + value))
+      .catch(() => fallbackCopy(value));
+  } else {
+    fallbackCopy(value);
   }
 }
+
+function fallbackCopy(value) {
+  const field = document.createElement("textarea");
+  field.value = value;
+  document.body.appendChild(field);
+  field.select();
+  try {
+    document.execCommand("copy");
+    alert("Ник скопирован: " + value);
+  } catch (error) {
+    alert("Не удалось скопировать. Ник: " + value);
+  }
+  field.remove();
+}
 </script>
+
 </body>
 </html>
