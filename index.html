@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5e8df">
+<meta name="robots" content="index,follow">
 <meta name="description" content="BLOGGERS CHAT — рыцари блогерского стола. Сообщество создателей контента Казахстана.">
 <title>BLOGGERS CHAT — Рыцари блогерского стола</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -439,6 +440,47 @@ function fallbackCopy(text) {
   }
   textarea.remove();
 }
+</script>
+
+
+<!-- BLOGGERS CHAT: загрузка участников из базы Supabase -->
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  const cfg=window.BLOGGERS_CHAT_CONFIG||{};
+  if(!cfg.supabaseUrl||!cfg.supabaseKey||cfg.supabaseUrl.includes('YOUR_'))return;
+  if(!window.supabase){console.warn('Supabase не загрузился');return;}
+  const db=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseKey);
+  const grid=document.getElementById('creatorGrid');
+  const caption=document.querySelector('.knights-caption');
+  if(!grid)return;
+  function safeUrl(value){try{const u=new URL(value);return u.protocol==='https:'?u.href:null}catch{return null}}
+  function makeCard(knight,index){
+    const article=document.createElement('article');article.className='creator-card knight-card';
+    const imgWrap=document.createElement('div');imgWrap.className='knight-image';
+    const badge=document.createElement('span');badge.className='knight-index';badge.textContent='KNIGHT / '+String(index+1).padStart(2,'0');
+    const img=document.createElement('img');img.loading='lazy';img.alt=knight.name||'Рыцарь блогерского стола';
+    const imgSrc=safeUrl(knight.image_url||'');if(imgSrc)img.src=imgSrc;
+    imgWrap.append(badge,img);
+    const details=document.createElement('div');details.className='knight-details';
+    const name=document.createElement('h3');name.className='knight-name';name.textContent=knight.name||'Участник';
+    const role=document.createElement('p');role.className='knight-role';role.textContent=knight.category||'BLOGGERS CHAT';
+    const link=document.createElement('a');link.className='knight-profile';link.textContent='ПРОФИЛЬ ↗';
+    const url=safeUrl(knight.instagram_url||'');
+    if(url){link.href=url;link.target='_blank';link.rel='noopener noreferrer'}
+    else{link.href='#creators';link.setAttribute('aria-disabled','true')}
+    details.append(name,role,link);article.append(imgWrap,details);return article;
+  }
+  async function load(){
+    const {data,error}=await db.from('knights').select('id,name,instagram_url,image_url,category,position').eq('is_visible',true).order('position',{ascending:true}).order('created_at',{ascending:true});
+    if(error){console.warn('Не удалось загрузить участников:',error.message);return;}
+    if(!data||!data.length)return; // если база пуста, показываем существующие три карточки
+    grid.replaceChildren(...data.map(makeCard));
+    if(caption)caption.textContent='РЫЦАРИ БЛОГЕРСКОГО СТОЛА / '+String(data.length).padStart(2,'0');
+  }
+  load();
+})();
 </script>
 
 </body>
