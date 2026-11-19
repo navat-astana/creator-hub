@@ -181,6 +181,33 @@ footer{margin-top:80px;background:var(--mocha);color:var(--sand);padding:44px 0 
 .dialog-close{padding:13px 18px;background:var(--mocha);color:var(--sand);border-radius:999px;font-weight:800;font-size:12px}
 @media(max-width:980px){.creator-grid.knights-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.knight-image{height:410px}}
 @media(max-width:680px){.creator-grid.knights-grid{grid-template-columns:1fr}.knight-image{height:480px}.knight-name{font-size:32px}.creator-card.knight-card{max-width:500px;width:100%;margin:auto}}
+
+/* BLOGGERS CHAT / горизонтальная карусель рыцарей */
+.creator-grid.knights-grid{
+ display:grid;grid-auto-flow:column;grid-template-columns:none !important;
+ grid-auto-columns:calc((100% - 36px)/3);gap:18px;
+ overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+ scroll-padding-inline:2px;overscroll-behavior-inline:contain;
+ -webkit-overflow-scrolling:touch;scroll-behavior:smooth;
+ scrollbar-width:none;padding:6px 3px 22px;
+ align-items:stretch;touch-action:pan-x pan-y;
+}
+.creator-grid.knights-grid::-webkit-scrollbar{display:none}
+.creator-grid.knights-grid > .knight-card{scroll-snap-align:start;scroll-snap-stop:normal;min-width:0;max-width:none;margin:0}
+.knights-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 10px}
+.knights-hint{font-size:12px;font-weight:700;color:var(--muted)}
+.knights-arrows{display:flex;align-items:center;gap:10px}
+.knights-arrow{display:grid;place-items:center;width:47px;height:47px;border:1px solid var(--line);border-radius:50%;background:var(--cream);color:var(--mocha);font-size:23px;line-height:1;transition:background .2s, opacity .2s}
+.knights-arrow:hover:not(:disabled){background:var(--pink)}
+.knights-arrow:disabled{opacity:.28;cursor:default}
+@media(max-width:980px){.creator-grid.knights-grid{grid-auto-columns:calc((100% - 18px)/2)}}
+@media(max-width:680px){
+ .creator-grid.knights-grid{grid-auto-columns:min(86%,410px);gap:13px;padding-bottom:16px}
+ .knight-image{height:420px}
+ .creator-grid.knights-grid > .knight-card{width:100%;max-width:none}
+ .knights-hint{font-size:11px}
+ .knights-arrow{width:42px;height:42px}
+}
 </style>
 <style>
 /* Approved editorial artwork — embedded in this single HTML file */
@@ -270,6 +297,13 @@ body{background:#f5e8df}
         <p class="section-desc">Первые рыцари блогерского стола. У каждого свой характер, образ и история.</p>
       </div>
       <p class="knights-caption">ПЕРВЫЙ НАБОР / 03 РЫЦАРЯ</p>
+      <div class="knights-controls" aria-label="Листание участников">
+        <span class="knights-hint">Листай рыцарей → <span class="knights-count" aria-live="polite">01 / 03</span></span>
+        <div class="knights-arrows">
+          <button class="knights-arrow" type="button" id="knightsPrev" aria-label="Предыдущие участники">&#8592;</button>
+          <button class="knights-arrow" type="button" id="knightsNext" aria-label="Следующие участники">&#8594;</button>
+        </div>
+      </div>
       <div class="creator-grid knights-grid" id="creatorGrid">
         <article class="creator-card knight-card">
           <div class="knight-image">
@@ -480,6 +514,46 @@ function fallbackCopy(text) {
     if(caption)caption.textContent='РЫЦАРИ БЛОГЕРСКОГО СТОЛА / '+String(data.length).padStart(2,'0');
   }
   load();
+})();
+</script>
+
+
+<!-- Карусель: 3 карточки на ПК, горизонтальный свайп на телефоне -->
+<script>
+(function(){
+ const track=document.getElementById('creatorGrid');
+ const prev=document.getElementById('knightsPrev');
+ const next=document.getElementById('knightsNext');
+ const counter=document.querySelector('.knights-count');
+ if(!track||!prev||!next)return;
+ function state(){
+   const cards=[...track.querySelectorAll('.knight-card')];
+   const count=cards.length;
+   let current=0;
+   if(count){
+     let best=Infinity;
+     for(let i=0;i<count;i++){
+       const diff=Math.abs(cards[i].offsetLeft-cards[0].offsetLeft-track.scrollLeft);
+       if(diff<best){best=diff;current=i;}
+     }
+   }
+   if(counter)counter.textContent=String(current+1).padStart(2,'0')+' / '+String(count).padStart(2,'0');
+   prev.disabled=track.scrollLeft<=3;
+   next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-3;
+ }
+ function move(dir){
+   const card=track.querySelector('.knight-card');
+   if(!card)return;
+   const gap=parseFloat(getComputedStyle(track).columnGap)||0;
+   track.scrollBy({left:dir*(card.getBoundingClientRect().width+gap),behavior:'smooth'});
+ }
+ prev.addEventListener('click',()=>move(-1));
+ next.addEventListener('click',()=>move(1));
+ track.addEventListener('scroll',state,{passive:true});
+ window.addEventListener('resize',state);
+ const observer=new MutationObserver(()=>{track.scrollLeft=0;requestAnimationFrame(state)});
+ observer.observe(track,{childList:true});
+ requestAnimationFrame(state);
 })();
 </script>
 
